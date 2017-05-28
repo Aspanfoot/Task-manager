@@ -1,0 +1,29 @@
+<nav class="navbar navbar-inverse" style = "border-radius:0px;">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Task manager</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="{% url 'home' %}">Home</a></li>
+	      <li><a href="#">Contacts</a></li>
+	      <li><a href="#">About</a></li>
+	    </ul>
+	    <ul class = "nav navbar-nav navbar-right nav-login">
+			{% if request.user.is_authenticated %}
+				<li><a href = "{% url 'profile:home' %}"><span class="glyphicon glyphicon-cog"></span>Profile</a></li>
+	      		<li>
+	      			<a href = "{% url 'accounts:auth_logout' %}">
+	      				<span class="glyphicon glyphicon-log-out"></span>Logout
+	      			</a>
+	      		</li>
+	      		{% else %}
+	      			<li><a href = "{% url 'unique_email_register' %}"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
+	      			<li>
+	      				<a href = "{% url 'accounts:auth_login' %}">
+	      					<span class="glyphicon glyphicon-log-in"></span>Login
+	      				</a>
+	      			</li>
+	      	{% endif %}
+	    </ul>
+	  </div>
+	</nav>
