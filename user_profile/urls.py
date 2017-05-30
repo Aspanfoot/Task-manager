@@ -9,4 +9,5 @@ urlpatterns = [
 	url(r'^tasks/add/$', views.add_task, name = 'add_task'),
 	url(r'^tasks/(?P<pk>\d+)/update/$', views.update_task, name = 'update_task'),
 	url(r'^tasks/(?P<pk>\d+)/delete/$', views.delete_task, name = 'delete_task'),
+	url(r'^tasks/(?P<pk>\d+)/share/$', views.share_task, name = 'share_task'),
 ]

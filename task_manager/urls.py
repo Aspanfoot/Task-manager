@@ -21,8 +21,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.index, name = 'index'),
-    url(r'^home/',views.home, name = 'home'),
+    url(r'^$', views.home, name = 'home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/register/', RegistrationView.as_view(form_class = RegistrationFormUniqueEmail),
            name = 'unique_email_register'),

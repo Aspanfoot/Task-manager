@@ -10,9 +10,9 @@ class Task(models.Model):
 	IN_PROGRES = 'IN_PROGRES'
 
 	TASK_CHOICES = (
-	    (COMPLETE, "Complete"),
-	    (NOT_STARTED, "Not Started"),
-	    (IN_PROGRES, "In Progres"),
+		(COMPLETE, "Complete"),
+		(NOT_STARTED, "Not Started"),
+		(IN_PROGRES, "In Progres"),
 	)
 
 	LOW = 'LOW'
@@ -20,15 +20,18 @@ class Task(models.Model):
 	HIGH = 'HIGH'
 
 	PRIORITY_CHOICES  = (
-	    (LOW, "Low"),
-	    (NORMAL, "Normal"),
-	    (HIGH, "High"),
+		(LOW, "Low"),
+		(NORMAL, "Normal"),
+		(HIGH, "High"),
 	)
 
+	user = models.ForeignKey(User, related_name = 'user', default = None)
+	host = models.CharField(max_length = 30, default = None, null = True)
 	name = models.CharField(max_length = 60)
-	description = models.CharField(max_length = 200)
+	description = models.CharField(max_length = 500)
 	status = models.CharField(max_length=12, choices=TASK_CHOICES, default = NOT_STARTED)
 	priority = models.CharField(max_length = 9, choices = PRIORITY_CHOICES, default = NORMAL)
+
 
 
 	def __str__(self):
